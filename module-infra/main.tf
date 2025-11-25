@@ -11,7 +11,14 @@ resource "aws_instance" "tool" {
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.tool.id]
   ami = var.ami
-
+  
+  instance_market_options {
+    market_type = "spot"
+    spot_options {
+      spot_instance_type = "persistent"
+      instance_interruption_behavior = "stop"
+    }
+  }
   tags = {
     Name = var.name
   }
