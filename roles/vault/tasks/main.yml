@@ -12,3 +12,14 @@
   ansible.builtin.dnf:
     name: vault
     state: present
+
+- name: copy vault config
+  ansible.builtin.template:
+    src: vault.hcl
+    dest: /etc/vault.d/vault.hcl
+
+- name: start vault
+  ansible.builtin.systemd_servce:
+    state: started
+    enabled: yes
+    name: vault
