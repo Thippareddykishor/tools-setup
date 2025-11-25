@@ -9,7 +9,7 @@ resource "aws_security_group" "tool" {
 
 resource "aws_instance" "tool" {
   instance_type = var.instance_type
-  vpc_security_group_ids = []
+  vpc_security_group_ids = [aws_security_group.tool.id]
   ami = var.ami
 
   tags = {
