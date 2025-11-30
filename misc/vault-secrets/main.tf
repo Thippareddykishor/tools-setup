@@ -55,7 +55,7 @@ resource "vault_generic_secret" "catalogue" {
   data_json = jsonencode(
     {
       "MONGO" : "true",
-      "MONGO_URL": "mongodb-dev.kommanuthala.store:27017/catalogue"
+      "MONGO_URL": "mongodb://mongodb-dev.kommanuthala.store:27017/catalogue"
     }
   )
 }
@@ -102,9 +102,9 @@ resource "vault_generic_secret" "frontend" {
   data_json = jsonencode(
     {
       "catalogue" : "http://catalogue-dev.kommanuthala.store:8080/",
-      "user" : "http://user-dev.kommanuthala.store:8080/"
-      "cart" : "http://cart-dev.kommanuthala.store:8080/"
-      "shipping" : "http://shipping-dev.kommanuthala.store:8080/"
+      "user" : "http://user-dev.kommanuthala.store:8080/",
+      "cart" : "http://cart-dev.kommanuthala.store:8080/",
+      "shipping" : "http://shipping-dev.kommanuthala.store:8080/",
       "payment" : "http://payment-dev.kommanuthala.store:8080/"
     }
   )
