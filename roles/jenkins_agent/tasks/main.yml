@@ -1,0 +1,6 @@
+- name: install java
+  ansible.builtin.dnf:
+    name: 
+      - java-17-openjdk
+      - fontconfig
+    state: present

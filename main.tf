@@ -1,8 +1,16 @@
 variable "tools" {
   default = {
-    vault= {
-        instance_type = "t3.micro"
-        port=8200
+    # vault= {
+    #     instance_type = "t3.micro"
+    #     port=8200
+    # }
+    jenkins={
+      instance_type="t2.micro"
+      port=8080
+    }
+    jenkins_agent={
+      instance_type="t2.micro"
+      port=80
     }
   }
 }
